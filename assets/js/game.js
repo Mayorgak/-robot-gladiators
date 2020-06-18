@@ -4,10 +4,10 @@
 //    * Defeat each enemy robot
 // "LOSE" - Player robot's health is zero or less
 
-var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
-var playerAttack = 10;
-var playerMoney = 10;
+var playerName;
+var playerHealth;
+var playerAttack;
+var playerMoney;
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
@@ -15,10 +15,28 @@ var enemyAttack = 12;
 // function to start a new game
 var startGame = function () {
   // reset player stats
+  playerName = window.prompt("What is your robot's name?");
   playerHealth = 100;
   playerAttack = 10;
   playerMoney = 10;
 
+  for (var i = 0; i < enemyNames.length; i++) {
+    if (playerHealth > 0) {
+      window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+      console.log("Welcome to Robot Gladiators! Round " + (i + 1));
+
+      var pickedEnemyName = enemyNames[i];
+
+      enemyHealth = 50;
+
+      fight(pickedEnemyName);
+    } else {
+      window.alert("You have lost your robot in battle! Game Over!");
+      endGame();
+      break;
+    }
+  }
+  endGame();
   // other logic remains the same...
 };
 
@@ -119,23 +137,5 @@ var fight = function (enemyName) {
       window.alert(playerName + " still has " + playerHealth + " health left.");
     }
   }
-
-  for (var i = 0; i < enemyNames.length; i++) {
-    if (playerHealth > 0) {
-      window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
-      console.log("Welcome to Robot Gladiators! Round " + (i + 1));
-
-      var pickedEnemyName = enemyNames[i];
-
-      enemyHealth = 50;
-
-      fight(pickedEnemyName);
-    } else {
-      window.alert("You have lost your robot in battle! Game Over!");
-      break;
-    }
-  }
 };
-
-// start the game when the page loads
 startGame();
