@@ -16,7 +16,7 @@ var enemyAttack = 12;
 var startGame = function () {
   // reset player stats
   playerName = window.prompt("What is your robot's name?");
-  playerHealth = 100;
+  playerHealth = 10;
   playerAttack = 10;
   playerMoney = 10;
 
