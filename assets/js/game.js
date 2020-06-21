@@ -54,6 +54,14 @@ var endGame = function () {
     window.alert("You've lost your robot in battle.");
   }
 
+  var storeConfirm = window.confirm(
+    "The fight is over, visit the store before the next round?"
+  );
+
+  // if yes, take them to the store() function
+  if (storeConfirm) {
+    shop();
+  }
   // ask player if they'd like to play again
   var playAgainConfirm = window.confirm("Would you like to play again?");
 
